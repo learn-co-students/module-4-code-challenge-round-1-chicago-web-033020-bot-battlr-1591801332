@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Botcard from "../components/BotCard";
+import SortBar from "../components/SortBar"
 
 class BotCollection extends Component {
   renderBotCards = () => {
@@ -9,17 +10,19 @@ class BotCollection extends Component {
         bot={botObj}
         toggleAddToArmy={this.props.toggleAddToArmy}
         removeBot={this.props.removeBot}
+        handleShowView={this.props.handleShowView}
       />
     ));
   };
 
   render() {
     return (
-      <div className="ui four column grid">
-        <div className="row">
-          {this.renderBotCards()}
+        <div className="ui four column grid">
+          <div className="row">
+            <SortBar sortBy={this.props.sortBy} handleSortChange={this.props.handleSortChange} filter={this.props.filter} handleFilterChange={this.props.handleFilterChange}/> 
+            {this.renderBotCards()}
+          </div>
         </div>
-      </div>
     );
   }
 }
