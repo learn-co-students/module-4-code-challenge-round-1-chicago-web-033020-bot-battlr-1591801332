@@ -7,7 +7,7 @@ class BotCollection extends Component {
 
   renderBot = () => {
     return this.props.bots.map(botObj => {
-     return <BotCard bot={botObj}  handleClick={this.props.handleClick}/>
+     return <BotCard bot={botObj}  handleClick={this.props.handleClick} handleDelete={this.props.handleDelete}/>
     })
   }
 

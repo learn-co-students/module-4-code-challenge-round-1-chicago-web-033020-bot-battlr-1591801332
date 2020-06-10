@@ -5,7 +5,7 @@ import BotCard from "../components/BotCard"
 class YourBotArmy extends Component {
   renderArmy = () => {
    return this.props.army.map(armyObj => {
-     return <BotCard bot={armyObj}/>
+     return <BotCard bot={armyObj} handleClick={this.props.handleClick}/>
    })
   }
 

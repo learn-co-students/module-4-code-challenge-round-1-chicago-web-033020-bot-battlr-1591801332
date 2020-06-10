@@ -29,24 +29,30 @@ class BotsPage extends Component {
     })
   }
   
-  handleClick = (bot) => {
+  handleClick = (bot, event) => {
   //couldn't finsih the logig of this
+  
+  // if (event.target !==)
   if (bot.army === true) {
-    return null 
-    // let newArr = this.state.botCollection.find( botObj => {
-    //   if (botObj.id === bot.id) {
-    //     return {
-    //       ...botObj,
-    //       army: !bot.army
-    //     }
-    //   }
-  } else {
+    bot.army = !bot.army 
+    let newArray = this.state.armyCollection.filter( botObj => {
+        if (botObj.id !== bot.id) {
+            return {
+                botObj
+              }
+            }
+          }
+          ) 
+              this.setState({
+                  armyCollection: newArray
+                })
+                    
+   } else {
     bot.army = !bot.army
     let newArr = this.state.botCollection.find( botObj => {
       if (botObj.id === bot.id) {
         return {
-          ...botObj,
-          army: !bot.army
+          ...botObj
         }
       }
     })
@@ -57,12 +63,28 @@ class BotsPage extends Component {
   }
  
 
+  handleDelete = (bot) => {
+    let newArr = this.state.botCollection.filter( botObj => {
+      if (botObj.id !== bot.id) {
+          return {
+              botObj
+            }
+          }
+        }
+        ) 
+          this.setState({
+              botCollection: newArr
+            })
+                  
+   
+  }
+
   render() {
     // console.log(this.state.armyCollection)
     return (
     <div>
-    <YourBotArmy army={this.state.armyCollection} sendArmy={this.sendArmy}/>
-    <BotCollection bots={this.state.botCollection} handleClick={this.handleClick} />
+    <YourBotArmy army={this.state.armyCollection} handleClick={this.handleClick}/>
+    <BotCollection bots={this.state.botCollection} handleClick={this.handleClick} handleDelete={this.handleDelete} />
     </div>
     )
   }
