@@ -1,4 +1,5 @@
 import React from "react";
+import BotSpecs from '../components/BotSpecs'
 
 const botTypeClasses = {
   Assault: "icon military",
@@ -15,7 +16,7 @@ const BotCard = props => {
       <div
         className="ui card"
         key={props.bot.id}
-        onClick={() => console.log("add code to connect event listener")}
+        onClick={() => props.handleClick(props.bot.id)}
       >
         <div className="image">
           <img alt="oh no!" src={props.bot.avatar_url} />
@@ -48,7 +49,7 @@ const BotCard = props => {
               <button
                 className="ui mini red button"
                 onClick={() =>
-                  console.log("add code to connect event listener")
+                  {props.deleteBot(props.bot.id)}
                 }
               >
                 x
@@ -57,6 +58,7 @@ const BotCard = props => {
           </span>
         </div>
       </div>
+      
     </div>
   );
 };
