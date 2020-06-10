@@ -6,10 +6,10 @@ const botTypeClasses = {
   Support: "icon plus circle",
   Medic: "icon ambulance",
   Witch: "icon magic",
-  Captain: "icon star"
+  Captain: "icon star",
 };
 
-const BotCard = props => {
+const BotCard = (props) => {
   return (
     <div className="ui column">
       <div
