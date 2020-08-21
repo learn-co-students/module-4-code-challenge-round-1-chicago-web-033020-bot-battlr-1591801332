@@ -15,6 +15,7 @@ const BotSpecs = props => {
       <div className="ui two column centered grid">
         <div className="row">
           <div className="four wide column">
+            test
             <img
               alt="oh no!"
               className="ui medium circular image bordered"
