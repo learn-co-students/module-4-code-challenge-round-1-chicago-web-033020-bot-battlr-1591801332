@@ -9,8 +9,7 @@ class BotsPage extends Component {
   constructor() {
     super()
     this.state = {
-      bots: [],
-      enlisted: []
+      bots: []
     }
   }
   
@@ -35,7 +34,6 @@ class BotsPage extends Component {
       } else {
           return bot
       }
-
     })
     this.setState({
       bots: bList
@@ -49,28 +47,23 @@ class BotsPage extends Component {
       } else {
           return bot
       }
-
     })
     this.setState({
       bots: bList
     })
   }
 
-  // removeBot = (id) => {
-  //   return this.state.bots.filter(bot => bot.id !==)
-  // } 
+  removeBot = (id) => {
+    return this.state.bots.filter(bot => bot.id !== id)
+  } 
+
   deleteBot = (id) => {
   const dURL = DELURL + id
     fetch(dURL, {method: 'delete'})
     .then(resp => resp.json())
     .then(data => {
-      // removeBot(id)
-      fetch(GETAPI)
-      .then(resp => resp.json())
-      .then(newBots => {
-        this.setState({
-          bots: newBots
-        })
+      this.setState({
+        bots: this.removeBot(id)
       })
     })
   }
