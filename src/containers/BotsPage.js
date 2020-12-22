@@ -69,9 +69,7 @@ class BotsPage extends Component {
   }
 
   render() {
-    console.log("bots page",this.state.bots)
     const enlistedBots = this.state.bots.filter(bot => bot.enlisted)
-    console.log(enlistedBots)
     return <div>
       <YourBotArmy enlistedBots={enlistedBots} releaseBot={this.releaseBot} deleteBot={this.deleteBot}/>
       <BotCollection allBots={this.state.bots} enlistBot={this.enlistBot} />
