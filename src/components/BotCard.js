@@ -15,9 +15,14 @@ const BotCard = props => {
       <div
         className="ui card"
         key={props.bot.id}
-        onClick={() => console.log("add code to connect event listener")}
+        // checks if prop.addToYourBots exits. If it does, it executes. If not, it executed props.removeFromYourBots
+        // onClick={() => props.addToYourBots ? props.addToYourBots(props.bot) : props.removeFromYourBots(props.bot.id)}
       >
-        <div className="image">
+        <div
+          className="image"
+          // checks if prop.addToYourBots exits. If it does, it executes. If not, it executed props.removeFromYourBots
+          onClick={() => props.addToYourBots ? props.addToYourBots(props.bot) : props.removeFromYourBots(props.bot.id)}
+        >
           <img alt="oh no!" src={props.bot.avatar_url} />
         </div>
         <div className="content">
@@ -45,14 +50,7 @@ const BotCard = props => {
           </span>
           <span>
             <div className="ui center aligned segment basic">
-              <button
-                className="ui mini red button"
-                onClick={() =>
-                  console.log("add code to connect event listener")
-                }
-              >
-                x
-              </button>
+              {props.addToYourBots ? <button className="ui mini red button" onClick={() => props.deleteBot(props.bot.id)}>x</button> : null}
             </div>
           </span>
         </div>
