@@ -9,14 +9,14 @@ const botTypeClasses = {
   Captain: "icon star"
 };
 
-const BotCard = props => {
+const BotArmyCard = props => {
   // console.log(props.handleAddToArmy)
   return (
     <div className="ui column">
       <div
         className="ui card"
         key={props.bot.id}
-        onClick={() => props.handleAddToArmy(props.bot)}
+        onClick={() => props.removeFromArmy(props.bot)}
       >
         <div className="image">
           <img alt="oh no!" src={props.bot.avatar_url} />
@@ -62,4 +62,4 @@ const BotCard = props => {
   );
 };
 
-export default BotCard;
+export default BotArmyCard;
